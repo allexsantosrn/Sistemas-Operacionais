@@ -20,14 +20,16 @@ int main(){
 
     	//Processo filho
     	printf("P0 - Número do Processo Filho: %d\n", getpid());
-           	
+        for(;;);
+    	
     }
 
     else {
 
     	//Processo pai
     	printf("P1 - Número do Processo Pai: %d\n", getpid());
-           	
+        for(;;);
+    	
     }
 
     return 0;
