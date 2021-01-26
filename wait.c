@@ -21,7 +21,7 @@ int main(){
 
     	//Processo filho
     	printf("P0 - Número do Processo Filho: %d\n", getpid()); 
-        //exit(0);       
+        exit(0);       
     	
     }
 
@@ -31,6 +31,7 @@ int main(){
     	printf("P1 - Número do Processo Pai: %d\n", getpid());
         wait(NULL);
         printf("Processo Filho Finalizado \n");
+        exit(0);
     	
     }
 
