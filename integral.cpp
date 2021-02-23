@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cmath>
 #include <pthread.h>
-#include <stdio.h>
 #include <vector>
 
 int t, n, trapezio_por_thread;
 double h;
-//double a=0, b=10, area=0; //Parâmetros para função 1
-double a=0, b = 2 * M_PI; //Parâmetros para função 2
+double a=0, b=10, area=0; //Parâmetros para função 1
+//double a=0, b = 2 * M_PI; //Parâmetros para função 2
 std::vector<double> vetor_trapezios; //Vetor acumulador das áreas dos trapézios
 
 //Função exemplo 1
@@ -27,10 +26,14 @@ double func2(double x){
 double calcularTrapezio(double inicio, double fim){
 
   double base = fim - inicio;
-  //double inicioCalculado = func1(inicio);
-  //double fimCalculado = func1(fim);
-  double inicioCalculado = func2(inicio);
-  double fimCalculado = func2(fim);
+
+  //Função 1
+  double inicioCalculado = func1(inicio);
+  double fimCalculado = func1(fim);
+
+  //Função 2
+  //double inicioCalculado = func2(inicio);
+  //double fimCalculado = func2(fim);
   
   return (base * (inicioCalculado + fimCalculado)/2);
 }
@@ -69,10 +72,10 @@ void* trap_threads(void* tid){
 
 int main(int argc, char *argv[]) {
   
-  std::cout << "Informe o número de threads:";
+  std::cout << "Informe o número de threads: ";
   std::cin >> t;
 
-  std::cout << "Informe o número de trapézios:"; 
+  std::cout << "Informe o número de trapézios: "; 
   std::cin >> n;
 
   pthread_t threads[t];
@@ -103,7 +106,7 @@ int main(int argc, char *argv[]) {
 
   double area_total = 0;
 
-  //Função que soma todos os valores do vetor
+  //Função que soma todos os valores do vetor - Encontrando a área total
   for(i=0; i< vetor_trapezios.size(); i++) {
 
     area_total = area_total + vetor_trapezios.at(i);
