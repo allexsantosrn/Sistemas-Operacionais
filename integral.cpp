@@ -5,7 +5,7 @@
 
 int t, n, trapezio_por_thread;
 double h;
-double a=0, b=10, area=0; //Parâmetros para função 1
+double a=0, b=10; //Parâmetros para função 1
 //double a=0, b = 2 * M_PI; //Parâmetros para função 2
 std::vector<double> vetor_trapezios; //Vetor acumulador das áreas dos trapézios
 
